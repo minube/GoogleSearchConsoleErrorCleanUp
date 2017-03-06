@@ -1,0 +1,13 @@
+
+{
+  "name": "minube/GoogleSearchConsoleErrorCleanUp",
+  "description": "minube/GoogleSearchConsoleErrorCleanUp",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "require": {
+    "google/apiclient": "^2.0"
+  },
+  "config": {
+    "vendor-dir": "vendor"
+  }
+}
