@@ -26,6 +26,7 @@ Authorize the Google Service Account to access your WMT info (add the email as a
 - roboted
 - serverError
 - soft404 (**use with caution** as it only check 200 HTTP status to mark the problem as solved)
+
 ### Device Options
 - mobile
 - smartphoneOnly
