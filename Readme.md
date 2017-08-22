@@ -11,7 +11,7 @@ Create a Google Service Account following [instructions provided by Google](http
 
 Replace `/path/to/service-account.json` with the path to the downloaded file
 
-Authorize the Google Service Account to access your WMT info (add the email as an user with full access to your Search Console)
+Authorize the Google Service Account to access your WMT info (add the email as a user with full access to your Search Console)
 
 ## Usage
 `php -f cli.php http://www.example.com errorType device`
