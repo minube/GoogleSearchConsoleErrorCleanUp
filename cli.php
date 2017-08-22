@@ -22,11 +22,24 @@ $Guzzle = new GuzzleHttp\Client();
 
 foreach ($urls as $url) {
     $fullUrl = $siteUrl . $url->pageUrl;
-    $response = $Guzzle->get($fullUrl, ['exceptions' => false]);
-    if ($response->getStatusCode() == 200) {
-        $service->urlcrawlerrorssamples->markAsFixed($siteUrl, $url->pageUrl, $errorType, $environment);
-        echo $fullUrl . " solved \n";
-    } else {
-        echo $fullUrl . " error persists \n";
+    try {
+        $response = $Guzzle->get($fullUrl, ['exceptions' => false]);
+        if ($response->getStatusCode() == 200) {
+            $service->urlcrawlerrorssamples->markAsFixed($siteUrl, $url->pageUrl, $errorType, $environment);
+            echo $fullUrl . "\033[32m solved \033[0m\n";
+        } else {
+            echo $fullUrl . "\033[31m  error persists \033[0m\n";
+        }
+    } catch (GuzzleHttp\Exception\TooManyRedirectsException $e) {
+        echo "TOO MANY REDIRECTS\n";
+        echo $fullUrl . "\033[31m error persists \033[0m\n";
+    } catch (Google_Service_Exception $e) {
+        if ($e->getCode() == 429) {
+            echo "\n SLEEP TOO MANY REQUESTS\n";
+            sleep(10);
+        } else {
+            echo "Unknown error " . $e->getMessage() . "\n";
+            echo "Trying to fix URL: $fullUrl\n";
+        }
     }
 }
