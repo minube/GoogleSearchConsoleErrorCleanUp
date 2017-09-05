@@ -14,7 +14,8 @@ Replace `/path/to/service-account.json` with the path to the downloaded file
 Authorize the Google Service Account to access your WMT info (add the email as a user with full access to your Search Console)
 
 ## Usage
-`php -f cli.php http://www.example.com errorType device`
+`php -f cli.php http://www.example.com/ errorType device`
+*\* Note the / at the end of the domain*
 
 ###Error type options
 - authPermissions
