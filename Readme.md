@@ -17,7 +17,7 @@ Authorize the Google Service Account to access your WMT info (add the email as a
 `php -f cli.php http://www.example.com/ errorType device`
 *\* Note the / at the end of the domain*
 
-###Error type options
+### Error type options
 - authPermissions
 - flashContent
 - manyToOneRedirect
